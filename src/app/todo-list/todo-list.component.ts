@@ -21,4 +21,12 @@ export class TodoListComponent implements OnInit {
     });
   }
 
+  done(todo: Todo): void {
+    todo.done = true;
+  }
+
+  newTodo(todo: Todo): void {
+    this.todos.push(todo);
+  }
+
 }

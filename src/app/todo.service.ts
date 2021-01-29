@@ -7,13 +7,21 @@ import {Observable, of} from 'rxjs';
 })
 export class TodoService {
 
-  constructor() { }
+  private todos: Todo[];
 
-  getTodos(): Observable<Todo[]> {
-    return of([
+  constructor() {
+    this.todos = [
       new Todo('Installer les packages'),
       new Todo('Regarder les packages les packages s\'installer'),
       new Todo('Sacrer')
-    ]);
+    ];
+  }
+
+  getTodos(): Observable<Todo[]> {
+    return of(this.todos);
+  }
+
+  createTodo(todo: Todo): void {
+    this.todos.push(todo);
   }
 }

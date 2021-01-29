@@ -1,0 +1,8 @@
+{{count}}
+<form [formGroup]="todoForm" (ngSubmit)="submit()">
+  <input type="text" formControlName="name" />
+  <button type="submit">Créer</button>
+  <div style="color:red" *ngIf="todoForm.invalid && submitted">
+    Le champ est requis.
+  </div>
+</form>

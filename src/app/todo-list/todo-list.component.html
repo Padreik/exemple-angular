@@ -1,5 +1,13 @@
 <div *ngIf="todos">
-  <ul *ngFor="let todo of todos">
-    <li>{{todo.name}}</li>
+  <ul>
+    <ng-container *ngFor="let todo of todos">
+      <li (click)="done(todo)" *ngIf="!todo.done">{{todo.name}}</li>
+    </ng-container>
   </ul>
 </div>
+
+<a routerLink="/new">Créer nouvelle tâche</a>
+
+<!--
+<app-todo-create (createEvent)="newTodo($event)" [count]="todos.length"></app-todo-create>
+-->
