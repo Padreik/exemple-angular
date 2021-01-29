@@ -6,6 +6,7 @@ import {TodoCreate2Component} from './todo-create2/todo-create2.component';
 const routes: Routes = [
   { path: '', component: TodoListComponent },
   { path: 'new', component: TodoCreate2Component },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: '**', redirectTo: '' }
 ];
 

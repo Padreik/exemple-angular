@@ -7,6 +7,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TodoCreate2Component } from './todo-create2/todo-create2.component';
+import {AuthModule} from './auth/auth.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,12 @@ import { TodoCreate2Component } from './todo-create2/todo-create2.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -28,8 +28,11 @@ export class TodoCreate2Component implements OnInit {
   submit() {
     this.submitted = true;
     if (this.todoForm.valid) {
-      this.todoService.createTodo(this.todoForm.getRawValue());
-      this.router.navigate(['/']);
+      this.todoService.createTodo(this.todoForm.getRawValue()).subscribe(next => {
+        this.router.navigate(['/']);
+      }, error =>{
+        // Afficher message d'erreur
+      });
     }
   }
 
