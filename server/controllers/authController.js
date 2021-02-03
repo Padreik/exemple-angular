@@ -1,5 +1,5 @@
-import Bcrypt from 'bcryptjs';
-import * as jwt from 'jsonwebtoken';
+const Bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 /**
  * @param req {Request}
@@ -15,8 +15,11 @@ function register(req, res) {
  */
 function login(req, res) {
     // Select du user
-    Bcrypt.compareSync(req.body.password, user.password);
-    const jwtBearerToken = jwt.sign({ admin: false }, "asdfasdf", { expiresIn: 604800 });
+    //Bcrypt.compareSync(req.body.password, user.password);
+    const jwtBearerToken = jwt.sign({ admin: false }, "asdfasdf", { expiresIn: 120 });
     res.cookie("SESSIONID", jwtBearerToken, { httpOnly: true });
+    res.send();
 
 }
+
+module.exports = {login};
